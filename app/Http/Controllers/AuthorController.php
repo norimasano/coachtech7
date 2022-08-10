@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
 use Illuminate\Http\Request;
+use App\Models\Author;
 use App\Http\Requests\AuthorRequest;
 
 class AuthorController extends Controller
 {
-		public function index()
+	public function index()
     {
-        $authors = Author::all();
+        $authors = Author::simplePaginate(4);
         return view('index', ['authors' => $authors]);
     }
     public function add()

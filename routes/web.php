@@ -1,6 +1,8 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SessionController; //追記
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;//追記
 
@@ -29,3 +31,7 @@ Route::post('/add', [BookController::class, 'create']);
 });
 // 以下追記
 Route::get('/relation', [AuthorController::class, 'relate']);
+// 以下追記
+Route::get('/session', [SessionController::class, 'getSes']);
+Route::post('/session', [SessionController::class, 'postSes']);
+Route::get('/back',[SessionController::class, 'backHome']);//追記
